@@ -1,0 +1,1 @@
+Remake of old DOM manipulation project following revised Odin project guidelines

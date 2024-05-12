@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#new-grid{
+    margin: 2em 0;
+}
+
+#container {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: initial;
+    justify-content: center;
+    align-items: center;
+}
+
+.square {
+    border: solid black 0.1em;
+    flex: auto;
+}
+
+.collared {
+    background-color: yellow;
+}
