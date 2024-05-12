@@ -1,5 +1,9 @@
-function regenerateGrid(squares = 16, size = 500 / squares) {
-    while(container.firstChild){
+function regenerateGrid(squares = 16) {
+    if (squares < 1 || squares > 100) {
+        squares = 16;
+    }
+    let size = 500 / squares;
+    while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
     for (let i = 0; i < (squares * squares); i++) {
@@ -25,5 +29,5 @@ buttonGrid.addEventListener("click", (event) => {
     while (!userInput || isNaN(userInput) || (userInput < 1 || userInput > 100)) {
         userInput = prompt("Enter new row count (between 1 and 100)");
     }
-    squares = +userInput;
+    regenerateGrid(+userInput);
 });
