@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-#new-grid{
+#new-grid-btn {
     margin: 2em 0;
 }
 
@@ -28,8 +28,4 @@
 .square {
     border: solid black 1px;
     flex: auto;
-}
-
-.collared {
-    background-color: yellow;
 }

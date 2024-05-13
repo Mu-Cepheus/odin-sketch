@@ -15,13 +15,33 @@ function regenerateGrid(squares = 16) {
     }
 }
 
+function randomizeColor() {
+    let hue = Math.random() * 361;
+    let saturation = Math.random() * 101;
+    let lightness = Math.random() * 101;
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`
+}
+
 const container = document.querySelector("#container");
-const buttonGrid = document.querySelector("#new-grid");
+const buttonGrid = document.querySelector("#new-grid-btn");
 
 regenerateGrid();
 
 container.addEventListener("mouseover", (event) => {
-    event.target.classList.add("collared");
+    let target = event.target;
+    if (target.style.backgroundColor) {
+        if (target.style.filter.includes("brightness")) {
+            let brightness = target.style.filter.slice(target.style.filter.indexOf("(") + 1, target.style.filter.indexOf(")"));
+            if (brightness > 0) {
+                let newBrightness = +brightness - 0.1;
+                target.style.filter = `brightness(${newBrightness})`;
+            }
+        } else {
+            target.style.filter = `brightness(0.9)`;
+        }
+    } else {
+        target.style.backgroundColor = randomizeColor();
+    }
 });
 
 buttonGrid.addEventListener("click", (event) => {
